@@ -1,0 +1,296 @@
+
+
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside class="left-sidebar" data-sidebarbg="skin5">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+            {% include "dashboard_templates/side_bar.html" %}
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+    
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Sales Cards  -->
+          <!-- ============================================================== -->
+           <div class="row">
+            <div class="col-md-15">
+                     <div class="card">
+                  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+                  <div class="container">
+                  <div class="row flex-lg-nowrap">
+              
+
+                    <div class="col">
+                      <div class="row">
+                        <div class="col mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="e-profile">
+                                <div class="row">
+                                  <div class="col-12 col-sm-auto mb-3">
+                                    <div class="mx-auto" style="width: 140px;">
+                                      <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);" >
+                                            {% if user.Foto_Profile %}
+                                            <img src="{{ url_for('static',  filename=user.Foto_Profile.replace('\\', '/')) }}" alt="Image Alt Text" width="140" height="140">   
+                                              {% else %}
+                                            <img src="{{ url_for('static',  filename='Data_Foto/Foto_User/default_images/user.png') }}" alt="Image Alt Text" width="140" height="140">   
+
+                                               {% endif %}
+                                            </div>
+                                    </div>
+                                  </div>
+                                  <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                    <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                      <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{user.full_name}}</h4>
+                                                  <div class="text-muted">
+                                          {% if user.status == '1' %}
+                                              <small>Admin</small>
+                                          {% elif user.status == '2' %}
+                                              <small>Pasien</small>
+                                          {% endif %}
+                                      </div>
+                                      <div class="mt-2">
+                                        <form id="uploadForm" enctype="multipart/form-data"  method="POST"  action="{{ url_for('upload_fisio_auth.upload_fisio',id=user.full_name) }}">
+                                        {{ form1.hidden_tag()}}
+
+                                        <!-- Hidden input field for username -->
+                                        <input type="hidden" name="full_name" value="{{ user.full_name }}">
+                                        <input type="hidden" name="status" value="{{ user.status }}">
+                                        <!-- Visible file input field -->
+                                        <input type="file" name="foto_fisio" id="fileInput" accept="image/*" style="display: none;">
+
+                                        <!-- Custom file input button with Font Awesome icon and file input trigger -->
+                                        <label for="fileInput" class="btn btn-success" id="fileInputLabel">
+                                            <i class="fa fa-fw fa-camera"></i>
+                                            <span>Upload Images</span>
+                                        </label>
+
+                                        <!-- Other form fields -->
+    
+
+                                        <input type="submit" name="Submit" id="submitAndUploadButton" name="Submit" value="Upload and Submit" style="display: none;" onclick="uploadFile()">
+                                    </form>
+
+                                  <div id="fileNameDisplay"></div>
+
+                                      </div>
+                                    </div>
+                                   
+                                  </div>
+                                </div>
+                                <ul class="nav nav-tabs">
+                               <li class="nav-item">
+                                      <a href="#profile-tab" class="nav-link active" data-toggle="tab">Profile</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a href="#password-tab" class="nav-link" data-toggle="tab">Ubah Password</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content pt-3">
+                                  <div id="profile-tab" class="tab-pane active">
+                                    <form class="form" novalidate="" method="POST" action="{{ url_for('update_data.update', id=user.full_name) }}">
+
+                                    {{ form.hidden_tag() }}
+                                      <div class="row">
+                                        <div class="col">
+                                          <div class="row">
+                                            <div class="col">
+                                              <div class="form-group">
+                                                <label>Full Name</label>
+                                                <input class="form-control" type="text" name="full_name" placeholder="Full name" value="{{user.full_name}}">
+                                              </div>
+                                            </div>
+                                        
+                                          </div>
+                                      
+                                          <div class="row">
+                                            <div class="col mb-3">
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                             
+                                      <div class="row">
+                                        <div class="col d-flex justify-content-end">
+                                          <button class="btn btn-success" type="submit">Save Changes</button>
+                                        </div>
+                                      </div>
+                                    </form>
+
+                                  </div>
+
+
+                                     <div id="password-tab" class="tab-pane active">
+                                      <form class="form" novalidate="" method="POST" action="{{ url_for('updatepassword_auth.change_password', id=user.email) }}">
+                                              {{ form2.hidden_tag() }}
+                                       <div class="row">
+                                        <div class="col-12 col-sm-6 mb-3">
+                                          <div class="row">
+                                            <div class="col">
+                                              <div class="form-group">
+                                                <label>Current Password</label>
+                                                <input class="form-control" name="current_password"type="password" placeholder="••••••">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col">
+                                              <div class="form-group">
+                                                <label>New Password</label>
+                                                <input class="form-control" name="new_password" type="password" placeholder="••••••">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col">
+                                              <div class="form-group">
+                                                <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
+                                                <input class="form-control" name="confirm_password" type="password" placeholder="••••••"></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                     
+                                      </div>
+
+
+
+                                   <div class="row">
+                                        <div class="col d-flex justify-content-end">
+                                          <button class="btn btn-success" type="submit">Save Changes</button>
+                                        </div>
+                                      </div>
+                                    </form>
+
+
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                       
+                     
+                    </div>
+                  </div>
+                  </div>
+                        
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- Sales chart -->
+          <!-- ============================================================== -->
+        
+          <!-- ============================================================== -->
+          <!-- Sales chart -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Recent comment and chats -->
+          <!-- ============================================================== -->
+   
+          <!-- ============================================================== -->
+          <!-- Recent comment and chats -->
+          <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <!-- <footer class="footer text-center">
+          All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://www.wrappixel.com">WrapPixel</a>.
+        </footer> -->
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+
+
+    <script>
+
+// Example usage when calling the function
+
+    function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        fileInput.click(); // Trigger the file input
+    }
+
+    // Listen for changes in the file input
+    document.getElementById('fileInput').addEventListener('change', function() {
+        const submitAndUploadButton = document.getElementById('submitAndUploadButton');
+        submitAndUploadButton.value = 'Uploading...'; // Change button text when file is selected
+        submitAndUploadButton.disabled = true; // Disable the button temporarily
+
+        // Submit the form when a file is selected
+        document.getElementById('uploadForm').submit();
+    });
+
+// JavaScript function to toggle tab content
+function toggleTab(tabId) {
+    // Hide all tab content sections
+    const tabContents = document.querySelectorAll('.tab-pane');
+    tabContents.forEach((content) => {
+        content.style.display = 'none';
+    });
+
+    // Show the selected tab content
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+        selectedTab.style.display = 'block';
+    }
+}
+
+// Add click event listeners to the tab links
+document.addEventListener('DOMContentLoaded', function () {
+    const tabLinks = document.querySelectorAll('[data-toggle="tab"]');
+    tabLinks.forEach((link) => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetTabId = link.getAttribute('href').substring(1);
+            toggleTab(targetTabId);
+        });
+    });
+});
+
+// Initially show the "Profile" tab content
+toggleTab('profile-tab');
+
+
+    </script>

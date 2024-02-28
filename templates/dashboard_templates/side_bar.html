@@ -1,0 +1,15 @@
+      <nav class="sidebar-nav">
+    <ul id="sidebarnav" class="pt-4">
+        {% for item in sidebar_items %}
+
+
+        <li class="sidebar-item">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ item.url }}" aria-expanded="false">
+                <i class="{{ item.icon }}"></i>
+                <span class="hide-menu">{{ item.name }}</span>
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+          </nav>

@@ -1,0 +1,134 @@
+    <aside class="left-sidebar" data-sidebarbg="skin5">
+          <!-- Sidebar scroll-->
+          <div class="scroll-sidebar">
+            <!-- Sidebar navigation-->
+              {% include "dashboard_templates/side_bar.html" %}
+            <!-- End Sidebar navigation -->
+          </div>
+          <!-- End Sidebar scroll-->
+        </aside>
+
+    <!-- Existing HTML content above -->
+
+  <div class="page-wrapper">
+  
+      <div class="page-breadcrumb">
+          <div class="row">
+              <div class="col-12 d-flex no-block align-items-center">
+                  <h4 class="page-title">Test Jalan Pasien</h4>
+                  <div class="ms-auto text-end">
+                      <nav aria-label="breadcrumb">
+                          <!-- <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">
+                                  Library
+                              </li>
+                          </ol> -->
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+          <!-- ============================================================== -->
+          <!-- Sales Cards  -->
+          <!-- ============================================================== -->
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="d-md-flex align-items-center">
+                              <div>
+                                  <!-- Add a container for displaying the message -->
+                                  <div id="message-container" class="mb-3"></div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <!-- column -->
+                              <div class="col-lg-9">
+                                  <div class="flot-chart">
+                                      <!-- Your chart or content goes here -->
+                                  </div>
+                              </div>
+                              <!-- column -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- ============================================================== -->
+          <!-- Sales chart -->
+          <!-- ============================================================== -->
+
+          <!-- ============================================================== -->
+          <!-- Sales chart -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Recent comment and chats -->
+          <!-- ============================================================== -->
+
+          <!-- ============================================================== -->
+          <!-- Recent comment and chats -->
+          <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Container fluid  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- footer -->
+      <!-- ============================================================== -->
+      <!-- <footer class="footer text-center">
+          All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://www.wrappixel.com">WrapPixel</a>.
+      </footer> -->
+      <!-- ============================================================== -->
+      <!-- End footer -->
+      <!-- ============================================================== -->
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
+  </div>
+  <!-- Add the following code to your HTML file -->
+  <!-- Add the following code to your HTML file -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+
+  <script>
+  // Connect to the Socket.IO server with the correct namespace '/jalan'
+  // Reference the message container element
+  const messageContainer = document.getElementById('message-container');
+
+  // Connect to the Socket.IO server with the correct namespace '/jalan'
+  const socket = io.connect('http://127.0.0.1:5005/jalan');
+
+  // Listen for messages from the server
+  socket.on('message_from_api', (message) => {
+      // Create a new paragraph element to display the message
+      const messageElement = document.createElement('p');
+      messageElement.textContent = message;
+
+      // Append the message element to the message container
+      messageContainer.appendChild(messageElement);
+  });
+
+  // Handle disconnection
+  socket.on('disconnect', () => {
+      console.log('Disconnected from the /jalan namespace');
+  });
+
+  // Optionally, you can also manually disconnect from the server
+  function disconnectFromNamespace() {
+      socket.disconnect(); // Disconnect from the /jalan namespace
+  }
+
+  function connectToNamespace() {
+      socket.connect(); // Connect to the /jalan namespace
+  }
+
+  </script>

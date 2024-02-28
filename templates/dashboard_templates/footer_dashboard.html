@@ -1,0 +1,67 @@
+
+    <script src="{{ url_for('static', filename='assets/libs/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{ url_for('static', filename='assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/sparkline/sparkline.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ url_for('static', filename='dist/js/waves.js') }}"></script>
+        <!--Menu sidebar -->
+    <script src="{{ url_for('static', filename='dist/js/sidebarmenu.js') }}"></script>
+        <!--Custom JavaScript -->
+    <script src="{{ url_for('static', filename='dist/js/custom.min.js') }}"></script>
+
+    <!--This page JavaScript -->
+    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="{{ url_for('static', filename='assets/libs/flot/excanvas.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.stack.js') }}"></script>
+     <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/jquery.flot.tooltip.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/flot/chart-page-init.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='ets/extra-libs/sparkline/sparkline.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/jquery.ui.touch-punch-improved.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/moment/min/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/libs/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/pages/calendar/cal-init.js') }}"></script>
+
+    <script>
+   $(function () {
+  "use strict";
+  var url = window.location + "";
+  var path = url.replace(
+    window.location.protocol + "//" + window.location.host + "/",
+    ""
+  );
+
+  // Debugging output
+  console.log("Clearing selected class");
+
+  // Clear the "selected" class from all items
+  $("#sidebarnav a").removeClass("selected");
+
+  var element = $("ul#sidebarnav a").filter(function () {
+    return this.href === url || this.href === path;
+  });
+
+  // ... Rest of your existing code ...
+});
+
+
+    </script>
+    <script>
+      /****************************************
+       *       Basic Table                   *
+       ****************************************/
+      $("#zero_config").DataTable();
+    </script>
+  </body>
+</html>

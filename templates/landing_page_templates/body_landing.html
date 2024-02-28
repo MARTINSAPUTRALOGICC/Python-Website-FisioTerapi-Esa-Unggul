@@ -1,0 +1,225 @@
+    <body id="section_1">
+
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-8 col-12 d-flex flex-wrap">
+                     
+                        <p class="d-flex mb-0">
+                            <i class="bi-envelope me-2"></i>
+
+                            <a href="mailto:info@company.com">
+                                jerrymaratis178@gmail.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                        <ul class="social-icon">
+                            <!-- <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-twitter"></a>
+                            </li>
+
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-facebook"></a>
+                            </li> -->
+
+                            <li class="social-icon-item">
+                                <a href="https://instagram.com/jerrymaratis?igshid=NzZhOTFlYzFmZQ==" class="social-icon-link bi-instagram"></a>
+                            </li>
+
+                            <!-- <li class="social-icon-item">
+                                <a href="#" class="social-icon-link bi-youtube"></a>
+                            </li> -->
+
+                            <li class="social-icon-item">
+                                <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.esaunggul.ac.id%2Fklinik-fisioterapi%2F" class="social-icon-link bi-whatsapp"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='images/logo_ueu.png') }}" class="logo img-fluid" alt="Kind Heart Charity">
+                    <span>
+                        Klinik Fisioterapi Esa Unggul
+                       
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#top">BERANDA</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">Tentang Kami</a>
+                        </li>
+
+                  
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_3">Fasilitas</a>
+                        </li>
+
+                
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_6">Kontak</a>
+                        </li>
+
+                        <li class="nav-item ms-3">
+                            <a class="nav-link custom-btn custom-border-btn btn" href="/login">Join Member</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+
+            <section class="hero-section hero-section-full-height">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 p-0">
+                            <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                <img src="{{url_for('static', filename='images/imagesslide/fisio_slide_1.jpg')}}" class="carousel-image img-fluid" alt="..." style="width: 100%; height:10%">
+                                    </div>
+                                    
+
+                                    <div class="carousel-item">
+                                        <img src="{{url_for('static',filename='images/imagesslide/fisio_slide_2.jpg')}}" class="carousel-image img-fluid" alt="..." style="width: 100%; height:10%">
+                                        
+                                      
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <img src="{{url_for('static',filename='images/imagesslide/fisio_slide_3.jpg')}}" class="carousel-image img-fluid" alt="..." style="width: 100%; height:10%">
+                                        
+                                 
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#hero-slide" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+
+                                <button class="carousel-control-next" type="button" data-bs-target="#hero-slide" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section-padding section-bg" id="section_2">
+                <div class="container">
+                                    <h2 class="mb-2 mb-5" style="text-align: center;">Tentang Kami</h2>
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <img src="{{url_for('static',filename='images/fisio terapi profile.jpg')}}" class="custom-text-box-image img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-text-box">
+                                <h2 class="mb-2">Klinik FisioTerapi</h2>
+
+                                <h5 class="mb-3">Esa Unggul</h5>
+
+                                <p class="mb-0">Fisioterapi adalah tindakan rehabilitasi pada pasien pascacedera atau mengalami penyakit tertentu dengan tujuan
+                                meminimalisir keterbatasan fisik. Prosedur fisioterapi dapat dilakukan pada pasien di semua rentang usia, pun tujuannya
+                                juga berbeda-beda tergantung kondisi pasien.</p>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="custom-text-box mb-lg-0">
+                                        <h5 class="mb-3">Terbuka Untuk:</h5>
+
+
+                                        <ul class="custom-list mt-2">
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                               Seluruh Mahasiswa
+                                            </li>
+
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                karyawan Esa Unguul
+                                            </li>
+                                            <li class="custom-list-item d-flex">
+                                                <i class="bi-check custom-text-box-icon me-2"></i>
+                                                Masyarakat umum
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="custom-text-box d-flex flex-wrap d-lg-block mb-lg-0">
+                                     
+                                            <h5 class="mb-3">Jam Operasional:</h5>
+                                            
+                                            
+                                            <ul class="custom-list mt-2">
+                                                <li class="custom-list-item d-flex">
+                                                    <i class="bi-check custom-text-box-icon me-2"></i>
+                                                    Senin s/d Jumat pukul 08:00 - 17:00 WIB
+                                                </li>
+                                            
+                                           
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+     
+ 
+
+    <section class="section-padding section-bg" id="section_3">
+        <div class="container">
+            <div class="row">
+                 <h2 class="mb-2 mb-5" style="text-align: center;">Fasilitas</h2>
+                <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                    <img src="{{url_for('static',filename='images/Fisioterapi-1.jpg')}}"
+                        class="custom-text-box-image img-fluid" alt="">
+                </div>
+        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+            <img src="{{url_for('static',filename='images/Fisioterapi-2.jpg')}}" class="custom-text-box-image img-fluid" alt="">
+        </div>
+            <div class="col-lg-6 col-12 mb-5 mb-lg-0 mt-5">
+                <img src="{{url_for('static',filename='images/Fisioterapi-3.jpg')}}" class="custom-text-box-image img-fluid" alt="">
+            </div>
+                <div class="col-lg-6 col-12 mb-5 mb-lg-0 mt-5">
+                    <img src="{{url_for('static',filename='images/Fisioterapi-4.jpg')}}" class="custom-text-box-image img-fluid" alt="">
+                </div>
+               
+    
+            </div>
+        </div>
+    </section>
